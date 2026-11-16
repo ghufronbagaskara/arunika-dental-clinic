@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4f1ea">
+    <meta name="description" content="Denah dan maket 3D interaktif Arunika Dental Care, rancangan klinik gigi satu lantai 24 × 15 m.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+    <title>Arunika Dental Care, denah dan maket klinik</title>
+  </head>
+  <body>
+    <div class="app">
+      <main class="stage" id="stage" aria-label="Tampilan denah dan maket">
+        <div id="viewport" hidden></div>
+        <div id="labels" hidden></div>
+        <div id="plan"></div>
+
+        <div class="stage-status" id="loading" role="status" aria-live="polite">
+          <span id="loading-text">Memuat maket 3D</span>
+          <span class="loading-bar" aria-hidden="true"><span id="loading-fill"></span></span>
+        </div>
+
+        <div class="camera-tools" id="camera-tools" role="group" aria-label="Kontrol kamera" hidden>
+          <button type="button" id="zoom-in" aria-label="Perbesar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <button type="button" id="zoom-out" aria-label="Perkecil">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+          </button>
+          <button type="button" id="reset" aria-label="Kembalikan kamera">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1.6 6.4M4 4v6h6"/></svg>
+          </button>
+        </div>
+
+        <p class="stage-hint" id="hint">Seret untuk memutar, gulir atau cubit untuk zoom, klik lantai untuk memilih ruang.</p>
+      </main>
+
+      <aside class="panel" aria-label="Kontrol dan indeks ruang">
+        <header class="brand">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M18 36a14 14 0 0 1 28 0z" fill="#d9793b"/>
+            <g stroke="#d9793b" stroke-width="3.5" stroke-linecap="round">
+              <path d="M15.5 26.5l-5.2-3"/><path d="M22.5 19.6l-3-5.2"/><path d="M32 17v-6"/><path d="M41.5 19.6l3-5.2"/><path d="M48.5 26.5l5.2-3"/>
+            </g>
+            <path d="M10 42c12 11 32 11 44 0" fill="none" stroke="#12343b" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h1>Arunika Dental Care</h1>
+            <p>Klinik gigi satu lantai, 24 × 15 m. Ruang praktik mengapit satu pusat sterilisasi.</p>
+          </div>
+        </header>
+
+        <section class="block" aria-labelledby="view-title">
+          <h2 id="view-title" class="visually-hidden">Tampilan</h2>
+          <div class="segmented" role="group" aria-label="Tampilan">
+            <button type="button" data-view="model" aria-pressed="false" disabled>Maket 3D</button>
+            <button type="button" data-view="plan" aria-pressed="true">Denah</button>
+          </div>
+          <div class="model-options" id="model-options" hidden>
+            <div class="option-row">
+              <span class="option-label" id="camera-label">Kamera</span>
+              <div class="chips" role="group" aria-labelledby="camera-label">
+                <button type="button" data-preset="maket" aria-pressed="true">Sudut 3/4</button>
+                <button type="button" data-preset="atas" aria-pressed="false">Tampak atas</button>
+              </div>
+            </div>
+            <div class="option-row">
+              <span class="option-label" id="cut-label">Dinding</span>
+              <div class="chips" role="group" aria-labelledby="cut-label">
+                <button type="button" data-cut="potong" aria-pressed="true">Potong 1,6 m</button>
+                <button type="button" data-cut="utuh" aria-pressed="false">Utuh 2,8 m</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="block" aria-labelledby="flow-title">
+          <h2 id="flow-title">Alur sirkulasi</h2>
+          <p class="block-note">Jalur pasien, instrumen, dan limbah tidak saling memotong di dalam ruang klinis.</p>
+          <ul class="toggles" id="flow-toggles"></ul>
+        </section>
+
+        <section class="block" aria-labelledby="zone-title">
+          <h2 id="zone-title">Zona kerja</h2>
+          <ul class="toggles">
+            <li>
+              <button type="button" class="toggle" id="zone-toggle" role="switch" aria-checked="false">
+                <span class="toggle-swatch toggle-swatch-ring" aria-hidden="true"></span>
+                <span class="toggle-text">
+                  <span class="toggle-name">Four-handed dentistry</span>
+                  <span class="toggle-note">Sistem jam di sekitar kepala pasien, kedua ruang praktik</span>
+                </span>
+                <span class="toggle-switch" aria-hidden="true"></span>
+              </button>
+            </li>
+          </ul>
+          <ul class="zone-legend" id="zone-legend" hidden></ul>
+        </section>
+
+        <section class="block rooms" aria-labelledby="room-title">
+          <h2 id="room-title">Ruang</h2>
+          <ol class="room-list" id="room-list"></ol>
+        </section>
+
+        <footer class="panel-foot">
+          <button type="button" class="primary" id="screenshot">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+            Unduh gambar
+          </button>
+          <p class="disclaimer">Ukuran konseptual, bukan gambar konstruksi.</p>
+        </footer>
+      </aside>
+    </div>
+    <noscript><p class="noscript">Aktifkan JavaScript untuk membuka denah dan maket.</p></noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

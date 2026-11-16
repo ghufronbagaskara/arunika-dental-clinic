@@ -1,0 +1,564 @@
+/* Arunika Dental Care: papan presentasi arsitektur yang terang dan hangat. */
+
+:root {
+  color-scheme: light;
+  --paper: #f4f1ea;
+  --paper-deep: #e9e3d7;
+  --stage: #e4ded2;
+  --ink: #12343b;
+  --ink-soft: #3e5a60;
+  --muted: #566a6e;
+  --line: #d3cbbd;
+  --line-strong: #b7ad9c;
+  --dawn: #d9793b;
+  --dawn-deep: #b65a22;
+  --teal: #2a8c82;
+  --focus: #b65a22;
+  --radius: 6px;
+  --font: "Archivo", "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--paper); }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.5; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h1, h2, p { margin: 0; }
+svg { display: block; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* --- Kerangka --- */
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
+  grid-template-areas: "panel stage";
+  height: 100dvh;
+}
+
+.panel {
+  grid-area: panel;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--line);
+  background: var(--paper);
+  scrollbar-width: thin;
+}
+
+.stage {
+  grid-area: stage;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--stage);
+}
+
+/* --- Merek --- */
+
+.brand {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 24px 22px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-mark { width: 52px; height: 52px; }
+
+.brand h1 {
+  font-size: 23px;
+  line-height: 1.05;
+  font-weight: 640;
+  font-stretch: 112%;
+  letter-spacing: -0.01em;
+}
+
+.brand p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+  font-stretch: 94%;
+}
+
+/* --- Blok panel --- */
+
+.block {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.block h2 {
+  font-size: 15px;
+  font-weight: 650;
+  font-stretch: 108%;
+  margin-bottom: 4px;
+}
+
+.block-note {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  font-stretch: 94%;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+}
+
+.segmented button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.segmented button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.segmented button:not([aria-pressed="true"]):hover:enabled { background: #ddd5c6; }
+
+.model-options { margin-top: 12px; display: grid; gap: 8px; }
+
+.option-row {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.option-label { font-size: 13px; color: var(--muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chips button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 13px;
+  font-stretch: 96%;
+}
+
+.chips button[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: #fffdf8;
+  box-shadow: inset 0 0 0 1px var(--ink);
+  font-weight: 600;
+}
+
+/* --- Sakelar alur dan zona --- */
+
+.toggles { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+
+.toggle {
+  display: grid;
+  grid-template-columns: 26px 1fr 34px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 6px 8px;
+  margin: 0 -8px;
+  width: calc(100% + 16px);
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  text-align: left;
+}
+
+.toggle:hover { background: var(--paper-deep); }
+
+.toggle-swatch {
+  height: 4px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(90deg, var(--flow) 0 7px, transparent 7px 10px);
+  opacity: 0.45;
+}
+
+.toggle[aria-checked="true"] .toggle-swatch { opacity: 1; }
+
+.toggle-swatch-ring {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: conic-gradient(#b39433 0 30%, #4f78a8 0 72%, #8f8677 0 88%, #8a6cae 0);
+  -webkit-mask: radial-gradient(circle, transparent 5px, #000 6px);
+  mask: radial-gradient(circle, transparent 5px, #000 6px);
+}
+
+.toggle-text { display: grid; min-width: 0; }
+.toggle-name { font-weight: 600; font-size: 14px; }
+.toggle-note { color: var(--muted); font-size: 12.5px; line-height: 1.35; font-stretch: 92%; }
+
+.toggle-switch {
+  position: relative;
+  width: 34px;
+  height: 20px;
+  border-radius: 999px;
+  background: #cfc6b6;
+  transition: background 0.15s;
+}
+
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fffdf8;
+  box-shadow: 0 1px 2px rgb(18 52 59 / 0.3);
+  transition: transform 0.15s;
+}
+
+.toggle[aria-checked="true"] .toggle-switch { background: var(--ink); }
+.toggle[aria-checked="true"] .toggle-switch::after { transform: translateX(14px); }
+
+.zone-legend {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.zone-legend li { display: flex; align-items: center; gap: 6px; }
+.zone-legend span { width: 10px; height: 10px; border-radius: 2px; border: 1px solid rgb(18 52 59 / 0.25); }
+
+/* --- Daftar ruang --- */
+
+.rooms { flex: 1 0 auto; }
+
+.room-list { list-style: none; margin: 6px 0 0; padding: 0; }
+
+.room-list > li { border-top: 1px solid var(--line); }
+.room-list > li:last-child { border-bottom: 1px solid var(--line); }
+
+.room-button {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 6px 2px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.room-number {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  font-size: 12px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  background: var(--zone);
+}
+
+.room-name { font-size: 14px; font-weight: 520; }
+.room-area { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.room-button:hover .room-name { text-decoration: underline; text-underline-offset: 3px; }
+
+.room-list > li.selected .room-number { background: var(--ink); color: var(--paper); }
+.room-list > li.selected .room-name { font-weight: 650; }
+
+.room-detail {
+  padding: 0 0 14px 40px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.room-zone {
+  font-size: 12px;
+  color: var(--dawn-deep);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.room-equipment {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.room-equipment li {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  font-size: 12px;
+  font-stretch: 94%;
+}
+
+/* --- Kaki panel --- */
+
+.panel-foot {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  gap: 8px;
+  padding: 14px 22px 18px;
+  background: linear-gradient(to bottom, rgb(244 241 234 / 0.85), var(--paper) 30%);
+  border-top: 1px solid var(--line);
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--dawn);
+  color: #1d1208;
+  font-weight: 650;
+}
+
+.primary svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.primary:hover:enabled { background: #e38a50; }
+
+.disclaimer { font-size: 12px; color: var(--muted); text-align: center; }
+
+/* --- Panggung: kanvas, denah, label --- */
+
+#viewport, #plan, #labels { position: absolute; inset: 0; }
+#viewport canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+#viewport canvas:focus-visible { outline-offset: -4px; }
+#labels { pointer-events: none; }
+
+#plan {
+  display: grid;
+  place-items: center;
+  padding: 28px 28px 56px;
+}
+
+#plan svg { width: 100%; height: 100%; }
+
+.stage-status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  gap: 6px;
+  min-width: 200px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: rgb(244 241 234 / 0.94);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 560;
+}
+
+.loading-bar { height: 3px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.loading-bar span { display: block; width: 0; height: 100%; background: var(--dawn); transition: width 0.2s; }
+.stage-status.failed .loading-bar { display: none; }
+
+.stage-hint {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  max-width: min(520px, calc(100% - 100px));
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  background: rgb(244 241 234 / 0.88);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+
+.camera-tools {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  display: grid;
+  border-radius: var(--radius);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  overflow: hidden;
+}
+
+.camera-tools button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+}
+
+.camera-tools button + button { border-top: 1px solid var(--line); }
+.camera-tools button:hover { background: var(--paper-deep); }
+.camera-tools svg { width: 18px; height: 18px; fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Label ruang di maket 3D. */
+.room-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 9px 2px 2px;
+  border-radius: 999px;
+  border: 1px solid rgb(18 52 59 / 0.18);
+  background: rgb(244 241 234 / 0.9);
+  box-shadow: 0 1px 3px rgb(18 52 59 / 0.18);
+  pointer-events: auto;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.room-tag-number {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 10.5px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.room-tag-name { font-size: 12px; font-weight: 560; color: var(--ink); }
+
+.room-tag:hover, .room-tag[aria-pressed="true"] { background: #fffdf8; border-color: var(--ink); }
+.room-tag[aria-pressed="true"] .room-tag-number { background: var(--dawn); color: #1d1208; }
+
+/* --- Denah SVG --- */
+
+.plan-paper { fill: var(--stage); }
+.plan-slab { fill: #d8d0c2; }
+.plan-room { stroke: none; cursor: pointer; transition: fill 0.15s; }
+.plan-room:hover { fill: #f6efe1; }
+.plan-room:focus-visible { outline: none; stroke: var(--focus); stroke-width: 0.08; }
+.plan-room.selected { fill: #d5ebe6; }
+
+.plan-wall { stroke: none; }
+.plan-window { fill: #e4efef; stroke: var(--ink); stroke-width: 0.02; }
+.plan-window-line { stroke: var(--ink); stroke-width: 0.015; }
+.plan-pass { stroke: var(--ink); stroke-width: 0.02; }
+.plan-pass-kotor { fill: #e7b8ae; }
+.plan-pass-bersih { fill: #a9d3cb; }
+.plan-counter { fill: #f1ece2; stroke: var(--ink); stroke-width: 0.02; }
+.plan-counter-top { fill: #fffdf8; stroke: var(--ink); stroke-width: 0.015; }
+.plan-header-line { stroke: var(--ink); stroke-width: 0.02; stroke-dasharray: 0.12 0.08; }
+.plan-door-leaf { stroke: var(--ink); stroke-width: 0.04; }
+.plan-door-swing { fill: none; stroke: var(--ink); stroke-width: 0.012; stroke-dasharray: 0.06 0.05; }
+
+.plan-fixtures { pointer-events: none; }
+.plan-fixture rect, .plan-fixture circle { fill: rgb(255 253 248 / 0.75); stroke: var(--ink-soft); stroke-width: 0.022; }
+.plan-fixture-front { stroke: var(--ink-soft); stroke-width: 0.012; }
+.plan-fixture circle.plan-fixture-mark { fill: none; stroke: #b3901d; stroke-dasharray: 0.06 0.05; }
+.plan-station { stroke: none !important; }
+.plan-station-kotor { fill: #efcbc3 !important; }
+.plan-station-bersih { fill: #c2e1db !important; }
+.plan-station-text { font-size: 0.22px; font-weight: 600; text-anchor: middle; fill: var(--ink); font-stretch: 85%; }
+.plan-partition { stroke: var(--teal); stroke-width: 0.05; }
+
+.plan-zones { pointer-events: none; }
+.plan-zone { fill-opacity: 0.38; stroke: var(--ink); stroke-width: 0.012; }
+.plan-zone-patient { fill: rgb(255 253 248 / 0.85); stroke: var(--ink); stroke-width: 0.015; }
+.plan-zone-text { font-size: 0.21px; font-weight: 650; text-anchor: middle; fill: var(--ink); paint-order: stroke; stroke: rgb(255 253 248 / 0.8); stroke-width: 0.04; }
+
+.plan-flows { pointer-events: none; }
+.plan-flow-halo { fill: none; stroke: #fffdf8; stroke-width: 0.17; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+.plan-flow-line { fill: none; stroke: var(--flow); stroke-width: 0.085; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.3 0.16; }
+.plan-flow-start { fill: var(--flow); stroke: #fffdf8; stroke-width: 0.03; }
+.plan-flow.active .plan-flow-line { animation: alur 1.4s linear infinite; }
+
+@keyframes alur { to { stroke-dashoffset: -0.46; } }
+
+.plan-labels { pointer-events: none; }
+.plan-tag-circle { fill: #fffdf8; stroke: var(--ink); stroke-width: 0.035; }
+.plan-tag.selected .plan-tag-circle { fill: var(--ink); }
+.plan-tag-number { font-size: 0.32px; font-weight: 700; text-anchor: middle; fill: var(--ink); }
+.plan-tag.selected .plan-tag-number { fill: var(--paper); }
+.plan-tag-name { font-size: 0.38px; font-weight: 620; text-anchor: start; fill: var(--ink); paint-order: stroke; stroke: rgb(255 253 248 / 0.75); stroke-width: 0.06; }
+.plan-tag-area { font-size: 0.28px; text-anchor: start; fill: var(--muted); paint-order: stroke; stroke: rgb(255 253 248 / 0.75); stroke-width: 0.05; }
+
+.plan-annotations { pointer-events: none; }
+.plan-dimension line { stroke: var(--ink-soft); stroke-width: 0.02; }
+.plan-dimension-text { font-size: 0.36px; text-anchor: middle; fill: var(--ink-soft); }
+.plan-entry path, .plan-sun path { fill: none; stroke: var(--dawn-deep); stroke-width: 0.07; stroke-linecap: round; stroke-linejoin: round; }
+.plan-sun circle { fill: var(--dawn); }
+.plan-note { font-size: 0.36px; text-anchor: middle; fill: var(--ink-soft); }
+.plan-sun .plan-note { text-anchor: start; }
+
+.noscript { padding: 24px; }
+
+/* --- Layar sempit: satu kolom, panggung di atas, kontrol di bawah --- */
+
+@media (max-width: 860px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-areas: "stage" "panel";
+    height: auto;
+  }
+
+  .stage { height: min(68svh, 620px); min-height: 360px; }
+  .panel { overflow: visible; border-right: 0; }
+  .brand { padding: 18px 16px 16px; }
+  .block { padding: 16px; }
+  .panel-foot { padding: 12px 16px 16px; }
+  #plan { padding: 12px 8px 52px; }
+  .stage-status { top: 10px; right: 10px; min-width: 0; left: 10px; }
+  .stage-hint { left: 10px; bottom: 10px; max-width: calc(100% - 76px); }
+  .camera-tools { right: 10px; bottom: 10px; }
+  .room-tag { padding-right: 2px; }
+  .room-tag-name { display: none; }
+  .room-tag[aria-pressed="true"] { padding-right: 9px; }
+  .room-tag[aria-pressed="true"] .room-tag-name { display: inline; }
+  .plan-tag-area { display: none; }
+}
+
+@media (max-width: 520px) {
+  .plan-tag-name { font-size: 0.36px; }
+  .plan-station-text, .plan-zone-text { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
