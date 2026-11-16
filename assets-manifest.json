@@ -1,0 +1,1308 @@
+[
+ {
+  "key": "dental-unit",
+  "file": "models/dental-unit.glb",
+  "bytes": 946584,
+  "triangles": 11838,
+  "bbox": {
+   "min": [
+    -0.891,
+    0,
+    -0.62
+   ],
+   "max": [
+    1.217,
+    2.066,
+    0.829
+   ]
+  },
+  "sizeM": [
+   2.108,
+   2.066,
+   1.449
+  ],
+  "notes": "Kursi dental lengkap + lampu + unit instrumen/spittoon, tekstur PBR (sumber 2048 px diturunkan ke 1024). Bbox mencakup lampu tinggi. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/dental-chair-652b8b58",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "operator-stool",
+  "file": "models/operator-stool.glb",
+  "bytes": 40796,
+  "triangles": 2620,
+  "bbox": {
+   "min": [
+    -0.307,
+    0,
+    -0.314
+   ],
+   "max": [
+    0.307,
+    0.564,
+    0.257
+   ]
+  },
+  "sizeM": [
+   0.615,
+   0.564,
+   0.571
+  ],
+  "notes": "Bangku dokter beroda, dudukan biru. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/doctor-s-stool-on-castors-8cfa4842",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "assistant-stool",
+  "file": "models/assistant-stool.glb",
+  "bytes": 79088,
+  "triangles": 6516,
+  "bbox": {
+   "min": [
+    -0.222,
+    0,
+    -0.222
+   ],
+   "max": [
+    0.222,
+    0.915,
+    0.222
+   ]
+  },
+  "sizeM": [
+   0.444,
+   0.915,
+   0.444
+  ],
+  "notes": "Bangku putar dengan sandaran, tinggi 0,92 m; mungkin perlu scale ~0,8 untuk bangku asisten. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/swivel-gas-lift-bar-stool-21384a31",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "instrument-trolley",
+  "file": "models/instrument-trolley.glb",
+  "bytes": 37556,
+  "triangles": 1974,
+  "bbox": {
+   "min": [
+    -0.338,
+    0,
+    -0.253
+   ],
+   "max": [
+    0.42,
+    1.007,
+    0.253
+   ]
+  },
+  "sizeM": [
+   0.758,
+   1.007,
+   0.506
+  ],
+  "notes": "Troli medis 5 laci + kotak limbah kuning di samping. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/medical-trolley-with-drawers-7d8a7753",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "tall-cabinet",
+  "file": "models/tall-cabinet.glb",
+  "bytes": 38436,
+  "triangles": 1296,
+  "bbox": {
+   "min": [
+    -0.4,
+    0,
+    -0.175
+   ],
+   "max": [
+    0.4,
+    1.9,
+    0.177
+   ]
+  },
+  "sizeM": [
+   0.8,
+   1.9,
+   0.352
+  ],
+  "notes": "Rak/lemari tinggi terbuka kayu terang (isi binder), ukuran nyata. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/office-bookcase-tall-800-x-350-x-1900-mm-5feecdf6",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "tall-cabinet-closed",
+  "file": "models/tall-cabinet-closed.glb",
+  "bytes": 94484,
+  "triangles": 1980,
+  "bbox": {
+   "min": [
+    -0.441,
+    0,
+    -0.29
+   ],
+   "max": [
+    0.3,
+    2.3,
+    0.876
+   ]
+  },
+  "sizeM": [
+   0.741,
+   2.3,
+   1.166
+  ],
+  "notes": "Lemari putih tinggi dengan satu pintu terbuka (bbox kedalaman 1,17 m karena pintu terbuka); isi rak terlihat. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/tall-larder-cabinet-600-mm-two-doors-da765f43",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "autoclave",
+  "file": "models/autoclave.glb",
+  "bytes": 247012,
+  "triangles": 3818,
+  "bbox": {
+   "min": [
+    -0.247,
+    0,
+    -0.34
+   ],
+   "max": [
+    0.247,
+    0.55,
+    0.433
+   ]
+  },
+  "sizeM": [
+   0.493,
+   0.55,
+   0.773
+  ],
+  "notes": "Autoclave meja, tekstur PBR (512 px). Sumber sama dengan proyek lama tetapi tekstur asli beresolusi tinggi. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/autoclave-6a9820dc",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "lead-shield",
+  "file": "models/lead-shield.glb",
+  "bytes": 30824,
+  "triangles": 1820,
+  "bbox": {
+   "min": [
+    -0.763,
+    0,
+    -0.045
+   ],
+   "max": [
+    0.763,
+    1.811,
+    0.345
+   ]
+  },
+  "sizeM": [
+   1.527,
+   1.811,
+   0.389
+  ],
+  "notes": "STAND-IN: layar lipat 3 panel beroda (bukan apron timbal asli); pakai sebagai pelindung radiasi bergerak. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/mobile-privacy-screen-3-panels-ed1dfac2",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "sharps-bin",
+  "file": "models/sharps-bin.glb",
+  "bytes": 26464,
+  "triangles": 988,
+  "bbox": {
+   "min": [
+    -0.125,
+    0,
+    -0.085
+   ],
+   "max": [
+    0.125,
+    0.34,
+    0.085
+   ]
+  },
+  "sizeM": [
+   0.25,
+   0.34,
+   0.17
+  ],
+  "notes": "Kontainer sharps merah dengan handle, material solid tanpa tekstur foto. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/sharps-disposal-container-b830542c",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "medical-waste-bin",
+  "file": "models/medical-waste-bin.glb",
+  "bytes": 16068,
+  "triangles": 590,
+  "bbox": {
+   "min": [
+    -0.168,
+    0,
+    -0.168
+   ],
+   "max": [
+    0.455,
+    0.65,
+    0.2
+   ]
+  },
+  "sizeM": [
+   0.623,
+   0.65,
+   0.368
+  ],
+  "notes": "Tong pedal kuning (limbah medis) + kotak sharps merah kecil. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/sharps-container-and-pedal-waste-bin-ed3a0dd8",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "hand-sanitizer",
+  "file": "models/hand-sanitizer.glb",
+  "bytes": 33996,
+  "triangles": 1760,
+  "bbox": {
+   "min": [
+    -0.23,
+    0,
+    -0.23
+   ],
+   "max": [
+    0.23,
+    1.41,
+    0.23
+   ]
+  },
+  "sizeM": [
+   0.46,
+   1.41,
+   0.46
+  ],
+  "notes": "Stasiun hand sanitizer berdiri. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/freestanding-hand-sanitizer-station-e954be27",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "waiting-chair",
+  "file": "models/waiting-chair.glb",
+  "bytes": 125264,
+  "triangles": 8320,
+  "bbox": {
+   "min": [
+    -1.185,
+    -0.016,
+    -0.305
+   ],
+   "max": [
+    1.185,
+    0.928,
+    0.305
+   ]
+  },
+  "sizeM": [
+   2.37,
+   0.944,
+   0.61
+  ],
+  "notes": "Kursi tunggu beam 4 dudukan, biru muda + sandaran lengan. bbox.min.y=-0.016 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/waiting-room-four-seat-beam-bench-76c5854d",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "bench",
+  "file": "models/bench.glb",
+  "bytes": 102776,
+  "triangles": 6592,
+  "bbox": {
+   "min": [
+    -0.885,
+    -0.016,
+    -0.305
+   ],
+   "max": [
+    0.885,
+    0.928,
+    0.305
+   ]
+  },
+  "sizeM": [
+   1.77,
+   0.944,
+   0.61
+  ],
+  "notes": "Beam bench 3 dudukan (dipakai sebagai bench). bbox.min.y=-0.016 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/waiting-room-three-seat-beam-bench-2cad4a64",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "sofa",
+  "file": "models/sofa.glb",
+  "bytes": 421704,
+  "triangles": 28861,
+  "bbox": {
+   "min": [
+    -1.137,
+    0.005,
+    -0.457
+   ],
+   "max": [
+    1.138,
+    0.922,
+    0.467
+   ]
+  },
+  "sizeM": [
+   2.275,
+   0.917,
+   0.925
+  ],
+  "notes": "Sofa 2 dudukan kain oatmeal, tekstur PBR; geometri disederhanakan dari ~96k tri. bbox.min.y=0.005 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/haven-224-oatmeal-two-seat-sofa-40262c27",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "armchair",
+  "file": "models/armchair.glb",
+  "bytes": 315264,
+  "triangles": 7029,
+  "bbox": {
+   "min": [
+    -0.407,
+    0,
+    -0.575
+   ],
+   "max": [
+    0.414,
+    1.023,
+    0.411
+   ]
+  },
+  "sizeM": [
+   0.82,
+   1.023,
+   0.987
+  ],
+  "notes": "Extra: kursi lengan kulit hitam + kayu (foto-realistis). bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "author": "Vibrant Nordic",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "coffee-table",
+  "file": "models/coffee-table.glb",
+  "bytes": 201792,
+  "triangles": 3732,
+  "bbox": {
+   "min": [
+    -0.651,
+    -0.001,
+    -0.651
+   ],
+   "max": [
+    0.651,
+    0.49,
+    0.651
+   ]
+  },
+  "sizeM": [
+   1.301,
+   0.491,
+   1.301
+  ],
+  "notes": "Meja kopi marmer bulat, kaki baja melengkung. bbox.min.y=-0.001 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/marble-top-round-coffee-table-446df690",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "plant-large",
+  "file": "models/plant-large.glb",
+  "bytes": 855560,
+  "triangles": 35240,
+  "bbox": {
+   "min": [
+    -0.338,
+    0,
+    -0.364
+   ],
+   "max": [
+    0.249,
+    1.336,
+    0.27
+   ]
+  },
+  "sizeM": [
+   0.587,
+   1.336,
+   0.634
+  ],
+  "notes": "Tanaman pot terakota, foto-realistis; disederhanakan. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://polyhaven.com/a/potted_plant_01",
+  "author": "Rico Cilliers",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "plant-small",
+  "file": "models/plant-small.glb",
+  "bytes": 329384,
+  "triangles": 24426,
+  "bbox": {
+   "min": [
+    -0.396,
+    0,
+    -0.42
+   ],
+   "max": [
+    0.304,
+    0.841,
+    0.237
+   ]
+  },
+  "sizeM": [
+   0.701,
+   0.841,
+   0.657
+  ],
+  "notes": "Tanaman pot terakota daun lebar, foto-realistis. Ukuran asli ~0,8 m: skala ~0,5 untuk meja. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "author": "Rico Cilliers",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "tv",
+  "file": "models/tv.glb",
+  "bytes": 129432,
+  "triangles": 7602,
+  "bbox": {
+   "min": [
+    -0.615,
+    0,
+    -0.165
+   ],
+   "max": [
+    0.615,
+    0.782,
+    0.085
+   ]
+  },
+  "sizeM": [
+   1.231,
+   0.782,
+   0.25
+  ],
+  "notes": "TV 55 inci di atas stand; layar hitam (assign tekstur sendiri bila perlu). bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/flat-screen-tv-55-inch-on-a-pedestal-stand-44fcc478",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "water-dispenser",
+  "file": "models/water-dispenser.glb",
+  "bytes": 307552,
+  "triangles": 16662,
+  "bbox": {
+   "min": [
+    -0.153,
+    0,
+    -0.32
+   ],
+   "max": [
+    0.153,
+    1.478,
+    0.175
+   ]
+  },
+  "sizeM": [
+   0.306,
+   1.478,
+   0.495
+  ],
+  "notes": "Dispenser galon atas, putih. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/water-dispenser-f854519e",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "reception-desk",
+  "file": "models/reception-desk.glb",
+  "bytes": 40788,
+  "triangles": 1896,
+  "bbox": {
+   "min": [
+    -1.3,
+    0,
+    -1.02
+   ],
+   "max": [
+    1.3,
+    1.082,
+    0.124
+   ]
+  },
+  "sizeM": [
+   2.6,
+   1.082,
+   1.144
+  ],
+  "notes": "Meja resepsionis melengkung, kayu terang + top putih. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/curved-reception-desk-ac93e59a",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "office-chair",
+  "file": "models/office-chair.glb",
+  "bytes": 131048,
+  "triangles": 11118,
+  "bbox": {
+   "min": [
+    -0.334,
+    0,
+    -0.403
+   ],
+   "max": [
+    0.334,
+    1.101,
+    0.289
+   ]
+  },
+  "sizeM": [
+   0.668,
+   1.101,
+   0.692
+  ],
+  "notes": "Kursi kerja mesh hitam beroda. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/office-task-chair-with-mesh-back-and-armrests-73dc5abe",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "monitor",
+  "file": "models/monitor.glb",
+  "bytes": 90964,
+  "triangles": 5752,
+  "bbox": {
+   "min": [
+    -0.27,
+    0,
+    -0.138
+   ],
+   "max": [
+    0.27,
+    0.416,
+    0.042
+   ]
+  },
+  "sizeM": [
+   0.541,
+   0.416,
+   0.18
+  ],
+  "notes": "Monitor 24 inci + stand. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/desktop-monitor-24-inch-326dfa17",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "keyboard",
+  "file": "models/keyboard.glb",
+  "bytes": 179164,
+  "triangles": 10478,
+  "bbox": {
+   "min": [
+    -0.219,
+    -0.003,
+    -0.069
+   ],
+   "max": [
+    0.219,
+    0.038,
+    0.067
+   ]
+  },
+  "sizeM": [
+   0.439,
+   0.041,
+   0.136
+  ],
+  "notes": "Keyboard full-size, keycap putih. bbox.min.y=-0.003 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/full-size-ansi-mechanical-keyboard-with-case-99b91adb",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "printer",
+  "file": "models/printer.glb",
+  "bytes": 41632,
+  "triangles": 3928,
+  "bbox": {
+   "min": [
+    -0.181,
+    -0.02,
+    -0.149
+   ],
+   "max": [
+    0.181,
+    0.278,
+    0.19
+   ]
+  },
+  "sizeM": [
+   0.362,
+   0.297,
+   0.339
+  ],
+  "notes": "Printer laser putih. bbox.min.y=-0.02 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/page-one-laser-printer-242caf15",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "filing-cabinet",
+  "file": "models/filing-cabinet.glb",
+  "bytes": 92220,
+  "triangles": 4568,
+  "bbox": {
+   "min": [
+    -0.45,
+    0,
+    -0.23
+   ],
+   "max": [
+    0.45,
+    0.722,
+    0.279
+   ]
+  },
+  "sizeM": [
+   0.9,
+   0.722,
+   0.509
+  ],
+  "notes": "Filing cabinet 2 laci putih. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/two-drawer-lateral-filing-cabinet-157adbfa",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "toilet",
+  "file": "models/toilet.glb",
+  "bytes": 37116,
+  "triangles": 3008,
+  "bbox": {
+   "min": [
+    -0.216,
+    0,
+    -0.383
+   ],
+   "max": [
+    0.216,
+    0.813,
+    0.285
+   ]
+  },
+  "sizeM": [
+   0.432,
+   0.813,
+   0.668
+  ],
+  "notes": "Closet gantung dinding dengan tutup; sisi belakang menempel dinding. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/floating-wc-wall-hung-toilet-1db044d9",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "wash-basin",
+  "file": "models/wash-basin.glb",
+  "bytes": 68560,
+  "triangles": 6762,
+  "bbox": {
+   "min": [
+    -0.303,
+    0,
+    -0.266
+   ],
+   "max": [
+    0.303,
+    0.965,
+    0.242
+   ]
+  },
+  "sizeM": [
+   0.606,
+   0.965,
+   0.508
+  ],
+  "notes": "Wastafel pedestal keramik + keran. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/pedestal-pedestal-washbasin-236263ca",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "mirror",
+  "file": "models/mirror.glb",
+  "bytes": 19328,
+  "triangles": 1438,
+  "bbox": {
+   "min": [
+    -0.441,
+    0,
+    -0.006
+   ],
+   "max": [
+    0.441,
+    0.882,
+    0.015
+   ]
+  },
+  "sizeM": [
+   0.882,
+   0.882,
+   0.021
+  ],
+  "notes": "Cermin bulat bingkai emas, diameter 0,88 m; permukaan cermin tampak gelap tanpa envmap. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/round-mirror-original-interior-decor-17db5768",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "lockers",
+  "file": "models/lockers.glb",
+  "bytes": 87880,
+  "triangles": 4254,
+  "bbox": {
+   "min": [
+    -0.81,
+    -0.004,
+    -0.24
+   ],
+   "max": [
+    0.8,
+    1.8,
+    0.278
+   ]
+  },
+  "sizeM": [
+   1.61,
+   1.805,
+   0.518
+  ],
+  "notes": "Loker 4 pintu putih/teal. bbox.min.y=-0.004 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/four-compartment-office-locker-bank-e9b274a5",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "table",
+  "file": "models/table.glb",
+  "bytes": 70228,
+  "triangles": 3792,
+  "bbox": {
+   "min": [
+    -0.35,
+    0,
+    -0.784
+   ],
+   "max": [
+    0.35,
+    0.861,
+    0.784
+   ]
+  },
+  "sizeM": [
+   0.7,
+   0.861,
+   1.568
+  ],
+  "notes": "Meja kayu persegi + 2 kursi (satu set). bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/restaurant-2-top-table-set-49d30711",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "storage-shelf",
+  "file": "models/storage-shelf.glb",
+  "bytes": 87568,
+  "triangles": 1380,
+  "bbox": {
+   "min": [
+    -0.451,
+    0,
+    -0.201
+   ],
+   "max": [
+    0.451,
+    2,
+    0.201
+   ]
+  },
+  "sizeM": [
+   0.902,
+   2,
+   0.402
+  ],
+  "notes": "Rak baja 5 tingkat 0,9x0,4x2 m. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/steel-shelving-unit-900-x-400-x-2000-mm-5-shelves-53bb8e17",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "cardboard-boxes",
+  "file": "models/cardboard-boxes.glb",
+  "bytes": 317348,
+  "triangles": 15334,
+  "bbox": {
+   "min": [
+    -0.193,
+    -0.007,
+    -0.225
+   ],
+   "max": [
+    0.195,
+    0.335,
+    0.291
+   ]
+  },
+  "sizeM": [
+   0.387,
+   0.342,
+   0.516
+  ],
+  "notes": "Kardus foto-realistis dengan tape; ukuran asli kecil, skala sesuai kebutuhan. bbox.min.y=-0.007 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://polyhaven.com/a/cardboard_box_01",
+  "author": "Rahul Chaudhary",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "receptionist",
+  "file": "models/receptionist.glb",
+  "bytes": 570152,
+  "triangles": 16976,
+  "bbox": {
+   "min": [
+    -0.283,
+    0,
+    -0.143
+   ],
+   "max": [
+    0.271,
+    1.359,
+    0.635
+   ]
+  },
+  "sizeM": [
+   0.554,
+   1.359,
+   0.778
+  ],
+  "notes": "Figur duduk berjas (kursi tidak disertakan). SUMBER SAMA dengan receptionist proyek lama (bukan lebih realistis), hanya tekstur 1024 px + geometri disederhanakan. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/seated-office-figure-79182d38",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "visitor-seated",
+  "file": "models/visitor-seated.glb",
+  "bytes": 1039060,
+  "triangles": 12552,
+  "bbox": {
+   "min": [
+    -0.311,
+    0,
+    -0.182
+   ],
+   "max": [
+    0.321,
+    1.364,
+    0.617
+   ]
+  },
+  "sizeM": [
+   0.631,
+   1.364,
+   0.8
+  ],
+  "notes": "Lansia duduk di kursi kayu sambil membaca (kursi menyatu). bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/rowan-3d-person-older-adult-seated-reading-9d81f2cd",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "visitor-standing",
+  "file": "models/visitor-standing.glb",
+  "bytes": 650096,
+  "triangles": 14137,
+  "bbox": {
+   "min": [
+    -0.296,
+    0.002,
+    -0.119
+   ],
+   "max": [
+    0.247,
+    1.672,
+    0.204
+   ]
+  },
+  "sizeM": [
+   0.543,
+   1.67,
+   0.323
+  ],
+  "notes": "Perempuan berdiri, kaos hijau. Pose statis. bbox.min.y=0.002 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/riley-3d-person-woman-standing-8d40398f",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "dentist",
+  "file": "models/dentist.glb",
+  "bytes": 1104312,
+  "triangles": 13733,
+  "bbox": {
+   "min": [
+    -0.39,
+    0.001,
+    -0.14
+   ],
+   "max": [
+    0.396,
+    1.853,
+    0.209
+   ]
+  },
+  "sizeM": [
+   0.786,
+   1.852,
+   0.349
+  ],
+  "notes": "Dokter berjas putih + stetoskop, berdiri. bbox.min.y=0.001 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/doctor-standing-3d-person-healthcare-247b8838",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "nurse",
+  "file": "models/nurse.glb",
+  "bytes": 791716,
+  "triangles": 14947,
+  "bbox": {
+   "min": [
+    -0.296,
+    0.002,
+    -0.145
+   ],
+   "max": [
+    0.249,
+    1.642,
+    0.201
+   ]
+  },
+  "sizeM": [
+   0.545,
+   1.639,
+   0.346
+  ],
+  "notes": "Perawat scrub hijau-teal, berdiri. bbox.min.y=0.002 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: meshopt",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/alex-3d-person-nurse-standing-d18f2e37",
+  "author": "Innerscene",
+  "license": "CC0 1.0",
+  "fallback": false
+ },
+ {
+  "key": "medical-cabinet",
+  "file": "models/medical-cabinet.glb",
+  "bytes": 30760,
+  "triangles": 1392,
+  "bbox": {
+   "min": [
+    -0.5,
+    0,
+    -0.305
+   ],
+   "max": [
+    0.5,
+    1.21,
+    0.347
+   ]
+  },
+  "sizeM": [
+   1,
+   1.21,
+   0.652
+  ],
+  "notes": "FALLBACK dari proyek lama (Cabinet Run Sink Module), gaya low-poly/stylized.  bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: tanpa kompresi geometri",
+  "source": "https://3dassets.dev/assets/dental-practice-and-surgery-cabinet-run-sink-module-42493004",
+  "author": "3DAssets.dev (Dental Practice and Surgery)",
+  "license": "CC0 1.0",
+  "fallback": true
+ },
+ {
+  "key": "delivery-cart",
+  "file": "models/delivery-cart.glb",
+  "bytes": 43272,
+  "triangles": 1240,
+  "bbox": {
+   "min": [
+    -0.25,
+    0,
+    -0.22
+   ],
+   "max": [
+    0.25,
+    1.228,
+    0.9
+   ]
+  },
+  "sizeM": [
+   0.5,
+   1.228,
+   1.12
+  ],
+  "notes": "FALLBACK dari proyek lama (Delivery Unit), gaya low-poly/stylized.  bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: tanpa kompresi geometri",
+  "source": "https://3dassets.dev/assets/dental-practice-and-surgery-delivery-unit-5e9334f5",
+  "author": "3DAssets.dev (Dental Practice and Surgery)",
+  "license": "CC0 1.0",
+  "fallback": true
+ },
+ {
+  "key": "ultrasonic-cleaner",
+  "file": "models/ultrasonic-cleaner.glb",
+  "bytes": 21352,
+  "triangles": 660,
+  "bbox": {
+   "min": [
+    -0.175,
+    0,
+    -0.165
+   ],
+   "max": [
+    0.24,
+    0.262,
+    0.14
+   ]
+  },
+  "sizeM": [
+   0.415,
+   0.262,
+   0.305
+  ],
+  "notes": "FALLBACK dari proyek lama (Ultrasonic Cleaner Bath), gaya low-poly/stylized.  bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: tanpa kompresi geometri",
+  "source": "https://3dassets.dev/assets/dental-practice-and-surgery-ultrasonic-cleaner-bath-1c9409ff",
+  "author": "3DAssets.dev (Dental Practice and Surgery)",
+  "license": "CC0 1.0",
+  "fallback": true
+ },
+ {
+  "key": "sealer",
+  "file": "models/sealer.glb",
+  "bytes": 26412,
+  "triangles": 1056,
+  "bbox": {
+   "min": [
+    -0.295,
+    0,
+    -0.15
+   ],
+   "max": [
+    0.295,
+    0.97,
+    0.15
+   ]
+  },
+  "sizeM": [
+   0.59,
+   0.97,
+   0.3
+  ],
+  "notes": "FALLBACK dari proyek lama (Sterile Pouch Rack), gaya low-poly/stylized. Bukan sealer; rak kantong steril sebagai pengganti alat kemas. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: tanpa kompresi geometri",
+  "source": "https://3dassets.dev/assets/dental-practice-and-surgery-sterile-pouch-rack-6c397dee",
+  "author": "3DAssets.dev (Dental Practice and Surgery)",
+  "license": "CC0 1.0",
+  "fallback": true
+ },
+ {
+  "key": "xray-unit",
+  "file": "models/xray-unit.glb",
+  "bytes": 23036,
+  "triangles": 488,
+  "bbox": {
+   "min": [
+    -0.123,
+    0,
+    -0.058
+   ],
+   "max": [
+    0.123,
+    0.36,
+    1.27
+   ]
+  },
+  "sizeM": [
+   0.246,
+   0.36,
+   1.328
+  ],
+  "notes": "FALLBACK dari proyek lama (Intraoral Xray Arm), gaya low-poly/stylized. Lengan x-ray intraoral dinding; origin di unit dinding, lengan menjulur. bbox.min.y=0 (0 = dasar di lantai); sumbu depan belum diverifikasi. Kompresi: tanpa kompresi geometri",
+  "source": "https://3dassets.dev/assets/dental-practice-and-surgery-intraoral-xray-arm-7ea56888",
+  "author": "3DAssets.dev (Dental Practice and Surgery)",
+  "license": "CC0 1.0",
+  "fallback": true
+ },
+ {
+  "key": "floor-terrazzo",
+  "files": {
+   "diffuse": "textures/floor-terrazzo_diff.webp",
+   "normal": "textures/floor-terrazzo_nor.webp",
+   "roughness": "textures/floor-terrazzo_rough.webp"
+  },
+  "bytes": 330218,
+  "resolution": "1024x1024 (tileable, WebP q80, normal = OpenGL/+Y)",
+  "tileSizeM": 1,
+  "notes": "Terrazzo terang berbintik abu; tile ukuran perkiraan.",
+  "source": "https://ambientcg.com/a/Terrazzo004",
+  "author": "ambientCG",
+  "license": "CC0 1.0",
+  "originalAsset": "Terrazzo004",
+  "fallback": false
+ },
+ {
+  "key": "floor-vinyl",
+  "files": {
+   "diffuse": "textures/floor-vinyl_diff.webp",
+   "normal": "textures/floor-vinyl_nor.webp",
+   "roughness": "textures/floor-vinyl_rough.webp"
+  },
+  "bytes": 58506,
+  "resolution": "1024x1024 (tileable, WebP q80, normal = OpenGL/+Y)",
+  "tileSizeM": 1.2,
+  "notes": "Ubin abu netral, diberi tint biru-abu halus (recolor) agar terasa klinis; tile ukuran perkiraan.",
+  "source": "https://ambientcg.com/a/Tiles036",
+  "author": "ambientCG",
+  "license": "CC0 1.0",
+  "originalAsset": "Tiles036",
+  "fallback": false
+ },
+ {
+  "key": "floor-tile-wet",
+  "files": {
+   "diffuse": "textures/floor-tile-wet_diff.webp",
+   "normal": "textures/floor-tile-wet_nor.webp",
+   "roughness": "textures/floor-tile-wet_rough.webp"
+  },
+  "bytes": 409072,
+  "resolution": "1024x1024 (tileable, WebP q80, normal = OpenGL/+Y)",
+  "tileSizeM": 1,
+  "notes": "Ubin putih kecil bergrid untuk toilet/area basah; ukuran perkiraan.",
+  "source": "https://ambientcg.com/a/Tiles040",
+  "author": "ambientCG",
+  "license": "CC0 1.0",
+  "originalAsset": "Tiles040",
+  "fallback": false
+ },
+ {
+  "key": "wall-plaster",
+  "files": {
+   "diffuse": "textures/wall-plaster_diff.webp",
+   "normal": "textures/wall-plaster_nor.webp",
+   "roughness": "textures/wall-plaster_rough.webp"
+  },
+  "bytes": 193442,
+  "resolution": "1024x1024 (tileable, WebP q80, normal = OpenGL/+Y)",
+  "tileSizeM": 1,
+  "notes": "Plester cat putih keabuan halus; ukuran perkiraan.",
+  "source": "https://ambientcg.com/a/PaintedPlaster017",
+  "author": "ambientCG",
+  "license": "CC0 1.0",
+  "originalAsset": "PaintedPlaster017",
+  "fallback": false
+ },
+ {
+  "key": "floor-wood",
+  "files": {
+   "diffuse": "textures/floor-wood_diff.webp",
+   "normal": "textures/floor-wood_nor.webp",
+   "roughness": "textures/floor-wood_rough.webp"
+  },
+  "bytes": 236848,
+  "resolution": "1024x1024 (tileable, WebP q80, normal = OpenGL/+Y)",
+  "tileSizeM": 1.7,
+  "notes": "Laminate kayu terang; ukuran tile dari Poly Haven (1,7 m).",
+  "source": "https://polyhaven.com/a/laminate_floor_02",
+  "author": "Dario Barresi, Charlotte Baglioni (Poly Haven)",
+  "license": "CC0 1.0",
+  "originalAsset": "laminate_floor_02",
+  "fallback": false
+ },
+ {
+  "key": "wood-veneer",
+  "files": {
+   "diffuse": "textures/wood-veneer_diff.webp",
+   "normal": "textures/wood-veneer_nor.webp",
+   "roughness": "textures/wood-veneer_rough.webp"
+  },
+  "bytes": 160340,
+  "resolution": "1024x1024 (tileable, WebP q80, normal = OpenGL/+Y)",
+  "tileSizeM": 0.5,
+  "notes": "Veneer oak putih untuk furnitur/counter; tile 0,5 m dari Poly Haven.",
+  "source": "https://polyhaven.com/a/white_oak_veneer",
+  "author": "Jenelle van Heerden (Poly Haven)",
+  "license": "CC0 1.0",
+  "originalAsset": "white_oak_veneer",
+  "fallback": false
+ }
+]
