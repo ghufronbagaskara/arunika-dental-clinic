@@ -165,6 +165,8 @@ export const openingTypes = {
   'pintu-servis': { label: 'Pintu servis', sill: 0, head: 2.1, passable: true },
   bukaan: { label: 'Bukaan tanpa daun pintu', sill: 0, head: 2.4, passable: true },
   jendela: { label: 'Jendela kaca', sill: 0.45, head: 2.5, passable: false },
+  'jendela-sedang': { label: 'Jendela kaca', sill: 0.95, head: 2.4, passable: false },
+  'jendela-tinggi': { label: 'Jendela atas buram', sill: 1.7, head: 2.45, passable: false, frosted: true },
   loket: { label: 'Loket', sill: 1.05, head: 2.2, passable: false },
   'pass-through': { label: 'Jendela pass-through', sill: 0.95, head: 1.5, passable: false },
 }
@@ -176,7 +178,22 @@ export const openings = [
   { id: 'pintu-utama', wall: 'luar-depan', start: 4.0, end: 6.2, type: 'pintu-kaca-ganda', swing: -1, hinge: 'both', room: '01' },
   { id: 'jendela-tunggu-kiri', wall: 'luar-depan', start: 0.6, end: 3.4, type: 'jendela' },
   { id: 'jendela-tunggu-kanan', wall: 'luar-depan', start: 6.8, end: 9.9, type: 'jendela' },
+  { id: 'jendela-pendaftaran', wall: 'luar-depan', start: 11.1, end: 12.6, type: 'jendela-sedang' },
+  { id: 'jendela-toilet', wall: 'luar-depan', start: 16.8, end: 18.4, type: 'jendela-tinggi' },
+  { id: 'jendela-staf-depan', wall: 'luar-depan', start: 20.4, end: 22.1, type: 'jendela-sedang' },
+
+  { id: 'jendela-praktik1-belakang', wall: 'luar-belakang', start: 3.25, end: 4.55, type: 'jendela-sedang' },
+  { id: 'jendela-sterilisasi', wall: 'luar-belakang', start: 7.9, end: 9.8, type: 'jendela-tinggi' },
+  { id: 'jendela-praktik2-belakang', wall: 'luar-belakang', start: 13.15, end: 14.45, type: 'jendela-sedang' },
   { id: 'pintu-belakang', wall: 'luar-belakang', start: 22.3, end: 23.3, type: 'pintu-servis', swing: -1, hinge: 'end', room: '09' },
+
+  { id: 'jendela-praktik1-kiri', wall: 'luar-kiri', start: 1.6, end: 4.1, type: 'jendela-sedang' },
+  { id: 'pintu-samping-kiri', wall: 'luar-kiri', start: 7.45, end: 8.55, type: 'pintu', swing: 1, hinge: 'start', room: '04' },
+  { id: 'jendela-tunggu-samping', wall: 'luar-kiri', start: 10.5, end: 13.3, type: 'jendela-sedang' },
+
+  { id: 'jendela-gudang-kanan', wall: 'luar-kanan', start: 1.3, end: 2.6, type: 'jendela-tinggi' },
+  { id: 'jendela-koridor-kanan', wall: 'luar-kanan', start: 7.45, end: 8.55, type: 'jendela-sedang' },
+  { id: 'pintu-samping-kanan', wall: 'luar-kanan', start: 11.45, end: 12.45, type: 'pintu', swing: -1, hinge: 'end', room: '10' },
 
   { id: 'pintu-praktik-1', wall: 'koridor-belakang-a', start: 0.85, end: 2.05, type: 'pintu', swing: -1, hinge: 'start', room: '05' },
   { id: 'pintu-sterilisasi', wall: 'koridor-belakang-a', start: 8.15, end: 9.35, type: 'pintu', swing: -1, hinge: 'start', room: '06' },
@@ -226,9 +243,11 @@ function mirrorFixture(fixture) {
 export const fixtures = [
   ...practiceRoomOne.map((fixture) => ({ ...fixture, room: '05' })),
   ...practiceRoomOne.map((fixture) => ({ ...mirrorFixture(fixture), room: '07' })),
-  // Figur dokter dan perawat hanya di Ruang praktik 1 (posisi operator dan asisten).
+  // Figur dokter, perawat, pasien, dan petugas radiografi.
   { room: '05', type: 'person-dentist', pos: [1.95, 1.75], size: [0.79, 0.35], rot: HALF_PI, stack: true },
   { room: '05', type: 'person-nurse', pos: [5.45, 2.8], size: [0.55, 0.35], rot: -HALF_PI, stack: true },
+  { room: '07', type: 'person-dentist', pos: [15.75, 1.75], size: [0.79, 0.35], rot: -HALF_PI, stack: true },
+  { room: '08', type: 'person-nurse', pos: [18.3, 5.75], size: [0.55, 0.35], rot: -HALF_PI, stack: true },
 
   // Sterilisasi: satu bangku pulau, isinya dibangun dari `sterileStations`.
   { room: '06', type: 'sterile-island', pos: [8.85, 3.25], size: [1.5, 5.5], rot: 0 },
@@ -253,6 +272,7 @@ export const fixtures = [
   { room: '01', type: 'sofa', pos: [0.6, 11.4], size: [2.28, 0.93], rot: HALF_PI, label: 'Sofa' },
   { room: '01', type: 'coffee-table', pos: [1.75, 11.4], size: [0.9, 0.9], rot: 0, shape: 'circle' },
   { room: '01', type: 'person-seated', pos: [2.85, 11.4], size: [0.63, 0.8], rot: -HALF_PI },
+  { room: '01', type: 'person-standing', pos: [4.1, 10.7], size: [0.54, 0.32], rot: -0.55, stack: true },
   { room: '01', type: 'queue-tv', pos: [2.8, 9.1], size: [1.25, 0.06], rot: 0, stack: true },
   { room: '01', type: 'plant-large', pos: [0.45, 9.5], size: [0.6, 0.6], rot: 0, shape: 'circle' },
   { room: '01', type: 'plant-large', pos: [10.05, 14.55], size: [0.6, 0.6], rot: 0, shape: 'circle' },
@@ -280,7 +300,7 @@ export const fixtures = [
 
   // Staf dan ganti APD
   { room: '10', type: 'lockers', pos: [23.6, 10.0], size: [1.61, 0.52], rot: -HALF_PI, label: 'Loker' },
-  { room: '10', type: 'staff-desk', pos: [21.85, 11.85], size: [0.7, 1.57], rot: HALF_PI, label: 'Meja + kursi' },
+  { room: '10', type: 'staff-desk', pos: [21.45, 11.85], size: [0.7, 1.57], rot: HALF_PI, label: 'Meja + kursi' },
   { room: '10', type: 'bench', pos: [21.2, 14.55], size: [1.77, 0.61], rot: Math.PI, label: 'Bangku ganti' },
   { room: '10', type: 'ppe-rack', pos: [23.55, 14.1], size: [1.2, 0.5], rot: -HALF_PI, label: 'Rak APD' },
   { room: '10', type: 'hand-sink', pos: [19.82, 14.0], size: [0.61, 0.51], rot: HALF_PI },
@@ -457,9 +477,51 @@ export const roomLabels = {
   '03': { short: 'Toilet', at: [17.4, 11.1] },
   '04': { short: 'Koridor', at: [12.0, 8.0] },
   '05': { short: 'Praktik 1', at: [4.55, 5.3] },
-  '06': { short: 'Sterilisasi', at: [7.15, 6.45] },
+  '06': { short: 'Sterilisasi', at: [7.45, 6.5] },
   '07': { short: 'Praktik 2', at: [12.85, 5.3] },
   '08': { short: 'Rontgen', at: [18.2, 0.65] },
   '09': { short: 'Gudang', at: [21.75, 4.5] },
   '10': { short: 'Staf + APD', at: [20.6, 10.1] },
+}
+
+// Data tapak luar: pagar keliling, area parkir sesuai kapasitas 2 unit praktik
+// (3 petak mobil + 1 difabel + 4 petak motor), jalan akses, teras, dan taman.
+export const siteLayout = {
+  lot: { x0: -4.2, x1: 28.2, z0: -3.2, z1: 27.0 },
+  sidewalk: { z0: 27.0, z1: 28.1 },
+  street: { z0: 28.1, z1: 31.8 },
+  pedestrianGate: [3.6, 6.6],
+  drivewayGate: [14.0, 19.6],
+  landing: { x0: 2.8, x1: 7.4, z0: 15.0, z1: 17.0 },
+  walkway: { x0: 3.8, x1: 6.4, z0: 17.0, z1: 27.0 },
+  zebra: { x0: 3.8, x1: 6.4, z0: 18.2, z1: 21.8 },
+  aisle: { x0: -2.6, x1: 25.4, z0: 18.2, z1: 21.8 },
+  carRow: { z0: 21.8, z1: 26.6 },
+  accessible: { x0: 7.6, x1: 10.0, hatch: [10.0, 11.2] },
+  carBays: [[11.2, 13.8], [19.8, 22.4], [22.4, 25.0]],
+  wheelStopZ: 25.95,
+  motorBays: { x0: -2.4, x1: 2.0, z0: 22.4, z1: 24.8, count: 4 },
+  beds: [
+    { x0: -0.2, x1: 2.5, z0: 15.15, z1: 16.5, raised: true },
+    { x0: 7.7, x1: 24.2, z0: 15.15, z1: 16.5, raised: true },
+    { x0: -3.5, x1: 3.1, z0: 25.2, z1: 26.5, raised: false },
+    { x0: -3.8, x1: -2.3, z0: 1.0, z1: 17.2, raised: false },
+    { x0: 26.3, x1: 27.8, z0: 1.0, z1: 26.2, raised: false },
+  ],
+  trees: [
+    [-3.1, 16.2, 1.15],
+    [-3.1, 25.8, 1.25],
+    [27.0, 16.0, 1.15],
+    [27.0, 25.5, 1.25],
+    [27.0, 4.5, 1.05],
+  ],
+  lamps: [
+    [3.35, 17.6],
+    [6.85, 17.6],
+    [3.35, 22.4],
+    [6.85, 22.4],
+    [13.7, 26.6],
+    [19.9, 26.6],
+    [25.6, 18.2],
+  ],
 }

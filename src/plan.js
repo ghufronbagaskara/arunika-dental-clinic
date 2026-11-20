@@ -86,7 +86,7 @@ function drawOpenings(layer) {
   for (const opening of openings) {
     const wall = walls.find(({ id }) => id === opening.wall)
     const rect = wallRect(wall, opening.start, opening.end)
-    if (opening.type === 'jendela') {
+    if (opening.type.startsWith('jendela')) {
       element('rect', { ...rect, class: 'plan-window' }, layer)
       const [x1, y1] = wallPoint(wall, opening.start)
       const [x2, y2] = wallPoint(wall, opening.end)
