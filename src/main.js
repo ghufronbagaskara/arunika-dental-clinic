@@ -13,12 +13,14 @@ const labelHost = get('labels')
 const planHost = get('plan')
 const viewButtons = [...document.querySelectorAll('[data-view]')]
 const presetButtons = [...document.querySelectorAll('[data-preset]')]
+const roofButtons = [...document.querySelectorAll('[data-roof]')]
 const cutButtons = [...document.querySelectorAll('[data-cut]')]
 
 const state = {
   view: 'plan',
   userChoseView: false,
   selected: null,
+  roof: true,
   flows: new Set(['pasien']),
   zones: false,
   viewer: null,
@@ -126,6 +128,31 @@ for (const room of rooms) {
   roomList.append(item)
 }
 
+function roomAreaText(room) {
+  return String(Math.round(room.rect[2] * room.rect[3] * 10) / 10).replace('.', ',') + ' m²'
+}
+
+function updateFocusBar() {
+  const bar = get('room-focus-bar')
+  const room = state.selected ? rooms.find((item) => item.id === state.selected) : null
+  const show = state.view === 'model' && Boolean(room)
+  bar.hidden = !show
+  if (!show) return
+  get('focus-room-badge').textContent = room.id
+  get('focus-room-title').textContent = room.name
+  get('focus-room-area').textContent = roomAreaText(room)
+}
+
+function syncShellButtons({ roof, cut }) {
+  state.roof = roof
+  for (const button of roofButtons) {
+    button.setAttribute('aria-pressed', String((button.dataset.roof === 'pasang') === roof))
+  }
+  for (const button of cutButtons) {
+    button.setAttribute('aria-pressed', String(button.dataset.cut === cut))
+  }
+}
+
 function selectRoom(id, { focus = false } = {}) {
   state.selected = id
   for (const item of roomList.children) {
@@ -138,6 +165,7 @@ function selectRoom(id, { focus = false } = {}) {
   plan.select(id)
   state.viewer?.select(id)
   if (id && focus && state.view === 'model') state.viewer?.focusRoom(id)
+  updateFocusBar()
   updateHint()
 }
 
@@ -150,7 +178,9 @@ function updateHint() {
       ? roomLabels[state.selected].short + ' dipilih. Pilih ruang lain pada denah atau daftar.'
       : 'Pilih ruang pada denah untuk membaca fungsi dan isinya.'
   } else {
-    hint.textContent = 'Seret untuk memutar, klik kanan atau dua jari untuk menggeser, gulir untuk zoom.'
+    hint.textContent = state.selected
+      ? 'Mode fokus ruang · Seret untuk memutar, gunakan Foto bukti untuk mengambil gambar ruang.'
+      : 'Seret untuk memutar, gulir untuk zoom, klik ruang untuk membuka atap dan fokus.'
   }
 }
 
@@ -165,6 +195,7 @@ function setView(view) {
   stage.dataset.view = view
   for (const button of viewButtons) button.setAttribute('aria-pressed', String(button.dataset.view === view))
   state.viewer?.show(view === 'model')
+  updateFocusBar()
   updateHint()
 }
 
@@ -182,9 +213,14 @@ for (const button of presetButtons) {
   })
 }
 
+for (const button of roofButtons) {
+  button.addEventListener('click', () => {
+    state.viewer?.setRoof(button.dataset.roof === 'pasang')
+  })
+}
+
 for (const button of cutButtons) {
   button.addEventListener('click', () => {
-    for (const other of cutButtons) other.setAttribute('aria-pressed', String(other === button))
     state.viewer?.setCut(button.dataset.cut === 'utuh')
   })
 }
@@ -192,29 +228,54 @@ for (const button of cutButtons) {
 get('zoom-in').addEventListener('click', () => state.viewer?.zoom(1.25))
 get('zoom-out').addEventListener('click', () => state.viewer?.zoom(1 / 1.25))
 get('reset').addEventListener('click', () => state.viewer?.reset())
+get('focus-clear').addEventListener('click', () => {
+  selectRoom(null)
+  state.viewer?.reset()
+})
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && state.selected) selectRoom(null)
+  else if ((event.key === 'r' || event.key === 'R') && state.view === 'model' && !event.ctrlKey && !event.metaKey) {
+    state.viewer?.setRoof(!state.roof)
+  }
 })
 
 // --- Unduh gambar ---
 
-const screenshotButton = get('screenshot')
-screenshotButton.addEventListener('click', async () => {
-  screenshotButton.disabled = true
-  try {
-    const background = getComputedStyle(stage).backgroundColor
-    const image = state.view === 'model'
-      ? captureModel(state.viewer.capture(), labelHost)
-      : await capturePlan(plan.svg, planHost, background)
-    downloadPng(image, 'arunika-dental-care-' + (state.view === 'model' ? 'maket' : 'denah') + '.png')
-  } catch (error) {
-    console.warn('Arunika: gambar gagal dibuat.', error)
-    get('hint').textContent = 'Gambar gagal dibuat. Coba lagi setelah tampilan selesai dimuat.'
-  } finally {
-    screenshotButton.disabled = false
+async function captureAndDownload() {
+  const background = getComputedStyle(stage).backgroundColor
+  const room = state.selected ? rooms.find((item) => item.id === state.selected) : null
+  if (state.view === 'model') {
+    const captionText = room
+      ? `Arunika Dental Care · ${room.id} ${room.name} (${roomAreaText(room)})`
+      : 'Arunika Dental Care, maket 3D. Ukuran konseptual.'
+    const filename = room
+      ? `arunika-ruang-${room.id}-${room.key}.png`
+      : 'arunika-dental-care-maket.png'
+    downloadPng(captureModel(state.viewer.capture(), labelHost, captionText), filename)
+    return
   }
-})
+  const image = await capturePlan(plan.svg, planHost, background)
+  downloadPng(image, 'arunika-dental-care-denah.png')
+}
+
+const screenshotButton = get('screenshot')
+const focusCaptureButton = get('focus-capture')
+for (const button of [screenshotButton, focusCaptureButton]) {
+  button.addEventListener('click', async () => {
+    screenshotButton.disabled = true
+    focusCaptureButton.disabled = true
+    try {
+      await captureAndDownload()
+    } catch (error) {
+      console.warn('Arunika: gambar gagal dibuat.', error)
+      get('hint').textContent = 'Gambar gagal dibuat. Coba lagi setelah tampilan selesai dimuat.'
+    } finally {
+      screenshotButton.disabled = false
+      focusCaptureButton.disabled = false
+    }
+  })
+}
 
 // --- Status awal ---
 
@@ -240,7 +301,8 @@ async function startViewer() {
       host: viewport,
       labelHost,
       reducedMotion,
-      onSelect: (id) => selectRoom(id),
+      onSelect: (id, options) => selectRoom(id, options),
+      onShellChange: syncShellButtons,
       onProgress: showProgress,
     })
     state.viewer = viewer

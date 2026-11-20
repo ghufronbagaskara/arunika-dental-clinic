@@ -35,6 +35,19 @@
           </button>
         </div>
 
+        <div class="stage-focus" id="room-focus-bar" hidden>
+          <span class="focus-badge" id="focus-room-badge"></span>
+          <div class="focus-meta">
+            <strong id="focus-room-title"></strong>
+            <span id="focus-room-area"></span>
+          </div>
+          <button type="button" class="focus-btn focus-btn-primary" id="focus-capture">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="3.5"/></svg>
+            Foto bukti
+          </button>
+          <button type="button" class="focus-btn" id="focus-clear">Semua ruang</button>
+        </div>
+
         <p class="stage-hint" id="hint">Seret untuk memutar, gulir atau cubit untuk zoom, klik lantai untuk memilih ruang.</p>
       </main>
 
@@ -49,7 +62,7 @@
           </svg>
           <div>
             <h1>Arunika Dental Care</h1>
-            <p>Klinik gigi satu lantai, 24 × 15 m. Ruang praktik mengapit satu pusat sterilisasi.</p>
+            <p>Klinik gigi satu lantai 24 × 15 m dengan atap pelana terpisah, pagar keliling, dan parkir pasien.</p>
           </div>
         </header>
 
@@ -68,10 +81,17 @@
               </div>
             </div>
             <div class="option-row">
+              <span class="option-label" id="roof-label">Atap</span>
+              <div class="chips" role="group" aria-labelledby="roof-label">
+                <button type="button" data-roof="pasang" aria-pressed="true">Terpasang</button>
+                <button type="button" data-roof="lepas" aria-pressed="false">Dilepas</button>
+              </div>
+            </div>
+            <div class="option-row">
               <span class="option-label" id="cut-label">Dinding</span>
               <div class="chips" role="group" aria-labelledby="cut-label">
-                <button type="button" data-cut="potong" aria-pressed="true">Potong 1,6 m</button>
-                <button type="button" data-cut="utuh" aria-pressed="false">Utuh 2,8 m</button>
+                <button type="button" data-cut="potong" aria-pressed="false">Potong 1,6 m</button>
+                <button type="button" data-cut="utuh" aria-pressed="true">Utuh 2,8 m</button>
               </div>
             </div>
           </div>

@@ -49,13 +49,14 @@ export async function capturePlan(svg, host, background) {
   return output
 }
 
-export function captureModel(canvas, labelHost) {
+export function captureModel(canvas, labelHost, labelText = 'Arunika Dental Care, maket 3D. Ukuran konseptual.') {
   const output = document.createElement('canvas')
   output.width = canvas.width
   output.height = canvas.height
   const ctx = output.getContext('2d')
   ctx.drawImage(canvas, 0, 0)
   const area = canvas.getBoundingClientRect()
+  ctx.save()
   ctx.scale(output.width / area.width, output.height / area.height)
   ctx.textBaseline = 'middle'
 
@@ -86,7 +87,8 @@ export function captureModel(canvas, labelHost) {
       ctx.fillText(part.textContent, partRect.left - area.left + partRect.width / 2, partRect.top - area.top + partRect.height / 2 + 0.5)
     }
   }
-  caption(ctx, area.width, area.height, 'Arunika Dental Care, maket 3D. Ukuran konseptual.')
+  caption(ctx, area.width, area.height, labelText)
+  ctx.restore()
   return output
 }
 
