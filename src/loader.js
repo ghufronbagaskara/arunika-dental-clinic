@@ -30,15 +30,23 @@ function normalize(scene, entry) {
   return wrapper
 }
 
-function prepareMaterials(scene, entry) {
+const HUMAN_KEYS = new Set(['dentist', 'nurse', 'receptionist', 'visitor-seated', 'visitor-standing'])
+
+function prepareMaterials(scene, entry, key) {
   const tint = entry.tint ? new Color(entry.tint) : null
+  const isHuman = HUMAN_KEYS.has(key)
   scene.traverse((node) => {
     if (!node.isMesh) return
     node.castShadow = true
     node.receiveShadow = true
     const list = Array.isArray(node.material) ? node.material : [node.material]
     for (const material of list) {
-      if ('envMapIntensity' in material) material.envMapIntensity = Math.min(material.envMapIntensity ?? 1, 0.9)
+      if ('envMapIntensity' in material) {
+        material.envMapIntensity = isHuman ? 0.52 : Math.min(material.envMapIntensity ?? 1, 0.9)
+      }
+      if (isHuman && 'roughness' in material) {
+        material.roughness = Math.max(material.roughness ?? 0.65, 0.62)
+      }
       if (tint && material.color) {
         material.color.copy(tint)
         material.map = null
@@ -70,7 +78,7 @@ export async function loadModels({ tier = 'core', onProgress = () => {} } = {}) 
     })
     progress.set(key, 1)
     report()
-    prepareMaterials(gltf.scene, entry)
+    prepareMaterials(gltf.scene, entry, key)
     return [key, normalize(gltf.scene, entry)]
   }))
 

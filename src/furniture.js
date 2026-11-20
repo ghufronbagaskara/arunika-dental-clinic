@@ -614,6 +614,32 @@ function createRandom(seed) {
   }
 }
 
+// Figur manusia prosedural (fallback jika GLB detail belum termuat).
+function proceduralPerson(parent, M, role) {
+  const seated = role === 'visitor-seated' || role === 'receptionist'
+  const topMat = role === 'dentist' ? M.coatWhite : role === 'nurse' ? M.scrubTeal : M.upholstery
+  const pantsMat = role === 'nurse' ? M.scrubTeal : M.charcoal
+  if (seated) {
+    box(parent, pantsMat, -0.09, 0.04, 0.14, 0.11, 0.42, 0.12, 0.03)
+    box(parent, pantsMat, 0.09, 0.04, 0.14, 0.11, 0.42, 0.12, 0.03)
+    box(parent, pantsMat, 0, 0.42, 0.04, 0.3, 0.12, 0.32, 0.04)
+    box(parent, topMat, 0, 0.54, -0.04, 0.34, 0.48, 0.2, 0.05)
+    cylinder(parent, M.skinTone, 0, 1.04, -0.02, 0.095, 0.21, 14)
+    ellipsoid(parent, M.charcoal, 0, 1.24, -0.03, 0.105, 0.08, 0.105, 10)
+    for (const side of [-1, 1]) box(parent, topMat, side * 0.21, 0.62, 0.06, 0.08, 0.34, 0.09, 0.03)
+  } else {
+    for (const side of [-1, 1]) {
+      cylinder(parent, pantsMat, side * 0.09, 0, 0, 0.065, 0.84, 10)
+      box(parent, M.rubber, side * 0.09, 0, 0.03, 0.1, 0.06, 0.22, 0.02)
+      cylinder(parent, topMat, side * 0.22, 0.88, 0.02, 0.048, 0.52, 10)
+    }
+    box(parent, topMat, 0, 0.82, 0, 0.36, 0.62, 0.21, 0.06)
+    cylinder(parent, M.skinTone, 0, 1.44, 0, 0.045, 0.08, 10)
+    ellipsoid(parent, M.skinTone, 0, 1.6, 0.01, 0.095, 0.11, 0.1, 12)
+    ellipsoid(parent, M.charcoal, 0, 1.66, -0.01, 0.102, 0.08, 0.105, 10)
+  }
+}
+
 // Elevasi default untuk benda yang diletakkan di atas meja kerja.
 const defaultElevation = { monitor: 0.93 }
 
@@ -687,11 +713,11 @@ export function buildFurniture(materials, assets) {
         break
       case 'waiting-bench-4': withAsset('waiting-chair', () => waitingRow(node, M, 4, width)); break
       case 'waiting-bench-3': withAsset('bench', () => waitingRow(node, M, 3, width)); break
-      case 'person-seated': withAsset('visitor-seated'); break
-      case 'person-standing': withAsset('visitor-standing'); break
-      case 'person-dentist': withAsset('dentist'); break
-      case 'person-nurse': withAsset('nurse'); break
-      case 'person-receptionist': withAsset('receptionist'); break
+      case 'person-seated': withAsset('visitor-seated', () => proceduralPerson(node, M, 'visitor-seated')); break
+      case 'person-standing': withAsset('visitor-standing', () => proceduralPerson(node, M, 'visitor-standing')); break
+      case 'person-dentist': withAsset('dentist', () => proceduralPerson(node, M, 'dentist')); break
+      case 'person-nurse': withAsset('nurse', () => proceduralPerson(node, M, 'nurse')); break
+      case 'person-receptionist': withAsset('receptionist', () => proceduralPerson(node, M, 'receptionist')); break
       case 'sofa': withAsset('sofa', () => sofa(node, M, fixture)); break
       case 'coffee-table': withAsset('coffee-table', () => coffeeTable(node, M, { size: [0.9, 0.6] })); break
       case 'queue-tv': queueTv(node, M, display); break
