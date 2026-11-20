@@ -67,39 +67,37 @@ export const models = {
   receptionist: { file: 'models/receptionist.glb', rotation: [0, 0, 0], scale: 1, tier: 'detail' },
   'visitor-seated': { file: 'models/visitor-seated.glb', rotation: [0, 0, 0], scale: 1, tier: 'detail' },
   'visitor-standing': { file: 'models/visitor-standing.glb', rotation: [0, 0, 0], scale: 1, tier: 'detail' },
-  dentist: { file: 'models/dentist.glb', rotation: [0, 0, 0], scale: 1, tier: 'detail' },
+  dentist: { file: 'models/dentist.glb', rotation: [0, -QUARTER, 0], scale: 1, tier: 'detail' },
   nurse: { file: 'models/nurse.glb', rotation: [0, 0, 0], scale: 1, tier: 'detail' },
 }
 
 // Tekstur PBR (WebP 1024, tileable). `size` = ukuran satu ulangan dalam meter
 // (tileSizeM di manifest). `tint` mengalikan warna diffuse (opsional).
-// Jika `map` null, maket membuat tekstur prosedural ringan di kanvas.
+// Jika `map` null, maket membuat tekstur PBR prosedural di kanvas (color + normal + roughness).
 export const textures = {
   terrazzo: {
     map: 'textures/floor-terrazzo_diff.webp', normalMap: 'textures/floor-terrazzo_nor.webp',
-    roughnessMap: 'textures/floor-terrazzo_rough.webp', size: 1,
+    roughnessMap: 'textures/floor-terrazzo_rough.webp', size: 1.4,
   },
-  vinyl: {
-    map: 'textures/floor-vinyl_diff.webp', normalMap: 'textures/floor-vinyl_nor.webp',
-    roughnessMap: 'textures/floor-vinyl_rough.webp', size: 1.2,
-  },
+  // Vinyl medis seamless prosedural 2 m (lebih bersih & realistis untuk ruang tindakan).
+  vinyl: { map: null, normalMap: null, roughnessMap: null, size: 2.0 },
   tile: {
     map: 'textures/floor-tile-wet_diff.webp', normalMap: 'textures/floor-tile-wet_nor.webp',
-    roughnessMap: 'textures/floor-tile-wet_rough.webp', size: 1,
+    roughnessMap: 'textures/floor-tile-wet_rough.webp', size: 1.2,
   },
   wood: {
     map: 'textures/floor-wood_diff.webp', normalMap: 'textures/floor-wood_nor.webp',
-    roughnessMap: 'textures/floor-wood_rough.webp', size: 1.7,
+    roughnessMap: 'textures/floor-wood_rough.webp', size: 1.8,
   },
   // Gudang: beton/epoxy polos prosedural.
   epoxy: { map: null, normalMap: null, roughnessMap: null, size: 2 },
   plaster: {
     map: 'textures/wall-plaster_diff.webp', normalMap: 'textures/wall-plaster_nor.webp',
-    roughnessMap: 'textures/wall-plaster_rough.webp', size: 1,
+    roughnessMap: 'textures/wall-plaster_rough.webp', size: 1.5,
   },
   veneer: {
     map: 'textures/wood-veneer_diff.webp', normalMap: 'textures/wood-veneer_nor.webp',
-    roughnessMap: 'textures/wood-veneer_rough.webp', size: 0.5,
+    roughnessMap: 'textures/wood-veneer_rough.webp', size: 0.7,
   },
 }
 
